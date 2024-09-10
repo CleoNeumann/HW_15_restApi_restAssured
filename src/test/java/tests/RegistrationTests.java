@@ -17,10 +17,8 @@ public class RegistrationTests extends TestBase {
                 .body(data)
                 .contentType(JSON)
                 .log().body()
-
                 .when()
                 .post("/register")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -40,10 +38,8 @@ public class RegistrationTests extends TestBase {
                 .body(data)
                 .contentType(JSON)
                 .log().body()
-
                 .when()
                 .post("/register")
-
                 .then()
                 .log().status()
                 .log().body()
@@ -58,10 +54,8 @@ public class RegistrationTests extends TestBase {
                 .body(data)
                 .contentType(JSON)
                 .log().body()
-
                 .when()
                 .post("/register")
-
                 .then()
                 .log().status()
                 .log().body()

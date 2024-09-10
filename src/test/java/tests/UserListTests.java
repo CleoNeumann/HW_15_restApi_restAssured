@@ -8,14 +8,13 @@ import static io.restassured.RestAssured.given;
 import static io.restassured.http.ContentType.JSON;
 import static org.hamcrest.Matchers.*;
 
-public class UserListTests extends TestBase{
+public class UserListTests extends TestBase {
 
     @Test
     void getUsersListTest() {
         given()
                 .when()
                 .get("/users")
-
                 .then()
                 .log().body()
                 .statusCode(200)
@@ -29,7 +28,6 @@ public class UserListTests extends TestBase{
         given()
                 .when()
                 .get("/users/5")
-
                 .then()
                 .log().body()
                 .statusCode(200)
@@ -43,10 +41,8 @@ public class UserListTests extends TestBase{
                 .body(data)
                 .contentType(JSON)
                 .log().body()
-
                 .when()
                 .post("/users")
-
                 .then()
                 .log().status()
                 .log().body()
