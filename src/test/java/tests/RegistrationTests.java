@@ -24,7 +24,7 @@ public class RegistrationTests extends TestBase {
                 .when()
                 .post("/register")
                 .then()
-                .spec(successResponseSpec)
+                .spec(successResponseSpec200)
                 .extract().as(SuccessfulRegistrationResponseModel.class));
         step("Check registered user id", () ->
                 assertEquals("4", response.getId()));
@@ -45,7 +45,7 @@ public class RegistrationTests extends TestBase {
                 .when()
                 .post("/register")
                 .then()
-                .spec(errorResponseSpec)
+                .spec(errorResponseSpec400)
                 .extract().as(UnsuccessfulRegistrationResponseModel.class));
         step("Check 'missing password' error", () ->
                 assertEquals("Missing password", response.getError()));
@@ -61,7 +61,7 @@ public class RegistrationTests extends TestBase {
                 .when()
                 .post("/register")
                 .then()
-                .spec(errorResponseSpec)
+                .spec(errorResponseSpec400)
                 .extract().as(UnsuccessfulRegistrationResponseModel.class));
         step("Check 'missing login' error", () ->
                 assertEquals("Missing email or username", response.getError()));

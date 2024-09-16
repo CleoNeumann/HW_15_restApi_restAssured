@@ -21,7 +21,7 @@ public class UserListTests extends TestBase {
                 .when()
                 .get("/users")
                 .then()
-                .spec(successResponseSpec)
+                .spec(successResponseSpec200)
                 .extract().as(UsersListResponseModel.class)
         );
         step("Check 'page' parameter ", ()->
@@ -39,7 +39,7 @@ public class UserListTests extends TestBase {
                 .when()
                 .get("/users/5")
                 .then()
-                .spec(successResponseSpec)
+                .spec(successResponseSpec200)
                 .extract().as(SelectedUserResponseModel.class));
         step("Check user id", ()->
                 assertEquals("5", response.getData().getId()));
@@ -62,7 +62,7 @@ public class UserListTests extends TestBase {
                 .when()
                 .post("/users")
                 .then()
-                .spec(createdResponseSpec)
+                .spec(createdResponseSpec201)
                 .extract().as(CreateNewUserResponseModel.class));
         step("Check new user name", ()->
                 assertEquals(data.getName(), response.getName()));

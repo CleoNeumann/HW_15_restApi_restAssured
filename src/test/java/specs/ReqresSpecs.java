@@ -14,23 +14,21 @@ public class ReqresSpecs {
     public static RequestSpecification requestSpec = with()
             .filter(withCustomTemplates())
             .contentType(JSON)
-            .log().uri()
-            .log().body()
-            .log().headers();
+            .log().all();
 
-    public static ResponseSpecification createdResponseSpec = new ResponseSpecBuilder()
+    public static ResponseSpecification createdResponseSpec201 = new ResponseSpecBuilder()
             .expectStatusCode(201)
             .log(STATUS)
             .log(BODY)
             .build();
 
-    public static ResponseSpecification successResponseSpec = new ResponseSpecBuilder()
+    public static ResponseSpecification successResponseSpec200 = new ResponseSpecBuilder()
             .expectStatusCode(200)
             .log(STATUS)
             .log(BODY)
             .build();
 
-    public static ResponseSpecification errorResponseSpec = new ResponseSpecBuilder()
+    public static ResponseSpecification errorResponseSpec400 = new ResponseSpecBuilder()
             .expectStatusCode(400)
             .log(STATUS)
             .log(BODY)
